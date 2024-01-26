@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<launch>
+
+
+  <arg name="world_file" default="$(find uvc_robot)/world/toka.world"/>
+  
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="use_sim_time" value="true"/>
+    <arg name="debug" value="false"/>
+    <arg name="gui" value="true" />
+    <arg name="world_name" value="$(arg world_file)"/>
+  </include>
+
+
+  <param
+    command="$(find xacro)/xacro $(find uvc_robot)/urdf/diffrobot.xacro"
+    name="robot_description" />
+
+    <!-- <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model diff_robot" /> -->
+
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="truse" />
+
+  </node>
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen" >
+
+  </node>
+
+
+
+  </launch>

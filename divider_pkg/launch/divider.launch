@@ -1,0 +1,7 @@
+<launch>
+    <node name="divider node" pkg=" divider_pkg" type="divider_node" />
+      <node name="int node " pkg="chatter_pkg" type="int_node" />
+
+    
+ </launch>
+

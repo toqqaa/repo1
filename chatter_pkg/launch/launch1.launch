@@ -1,0 +1,3 @@
+<launch>
+    <node name="name as you wish " pkg=" name of pkg" type="the name of execution file of node" />
+ </launch>
